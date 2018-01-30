@@ -26,7 +26,8 @@ Depending on what you're using :
 npm start or yarn start
 ```
 
-this starts a dev server which on port 1234 (access via localhost:1234)
+This starts a dev server which on port 1234 (access via localhost:1234).
+Hot reloading is available right out of the box.
 
 
 ### Starting building your app for production
