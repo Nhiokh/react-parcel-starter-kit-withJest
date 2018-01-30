@@ -1,9 +1,9 @@
 {
-  "name": "simple-MobX-test",
+  "name": "react-parcel-starter-kit",
   "version": "1.0.0",
-  "description": "Simple test of MobX on a React App",
+  "description": "React starter kit using Parcel for bundling",
   "main": "index.js",
-  "repository": "https://github.com/Nhiokh/simple-MobX-test.git",
+  "repository": "https://github.com/Nhiokh/react-parcel-starter-kit.git",
   "author": "Samuel Abiassi <contact@samuelabiassi.com>",
   "license": "MIT",
   "dependencies": {
