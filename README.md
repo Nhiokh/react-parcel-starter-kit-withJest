@@ -4,16 +4,16 @@ This starter kit is kind of a copy of create-react-app, but without the webpack 
 ## How to use
 First, clone this repo
 
-'''
+```
 git clone https://github.com/Nhiokh/react-parcel-starter-kit my-project
 cd my-project
-'''
+```
 
 Then, install the dependencies
 
-'''
+```
 npm install or yarn install
-'''
+```
 
 You're good to go. Just use one of the following scripts
 
@@ -22,12 +22,12 @@ Depending on what you're using :
 
 ### Starting development environment
 
-'''
+```
 npm start or yarn start
-'''
+```
 
 ### Starting building your app for production
 
-'''
+```
 npm build or yarn build   
-'''
+```
