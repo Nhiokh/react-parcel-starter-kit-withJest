@@ -26,6 +26,9 @@ Depending on what you're using :
 npm start or yarn start
 ```
 
+this starts a dev server which on port 1234 (access via localhost:1234)
+
+
 ### Starting building your app for production
 
 ```
