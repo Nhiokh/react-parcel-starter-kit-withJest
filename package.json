@@ -17,6 +17,7 @@
     "babel-preset-react": "^6.24.1"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build entry.js"
   }
 }
