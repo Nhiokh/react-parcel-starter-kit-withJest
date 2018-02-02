@@ -12,4 +12,9 @@ describe('Testing App component', ()=>{
     app.setState({userLoggedIn:false})
     expect(app.find('#app-logger')).toHaveLength(1)
   })
+  test('Should return news feed if user is logged in', ()=> {
+    const app = shallow(<App/>)
+    app.setState({userLoggedIn:true})
+    expect(app.find('#app-news-feed')).toHaveLength(1)
+  })
 })

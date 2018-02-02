@@ -1,0 +1,33 @@
+html,body {
+  width: 100%;
+  margin: 0;
+}
+
+#app-logger {
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .app-logger-inputs {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      font-size: 1.2em;
+      margin-bottom:16px;
+      padding: 8px;
+    }
+  }
+
+  button {
+    background: #19E;
+    padding: 8px 40px;
+    font-size: 1em;
+    border: none;
+    outline: none;
+    border-radius: 16px;
+    color:white;
+  }
+}
