@@ -6,6 +6,14 @@
   "repository": "https://github.com/Nhiokh/react-parcel-starter-kit.git",
   "author": "Samuel Abiassi <contact@samuelabiassi.com>",
   "license": "MIT",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "unmockedModulePathPatterns": [
+      "react",
+      "enzyme",
+      "jest-enzyme"
+    ]
+  },
   "dependencies": {
     "babel-jest": "^22.1.0",
     "enzyme": "^3.3.0",
