@@ -8,11 +8,15 @@ class App extends React.Component {
     }
   }
 
+  increment = () => {
+    this.setState({count++})
+  }
+
   render(){
     return (
       <div>
         <p>Simple React App</p>
-        <button>Increment</button>
+        <button onClick={()=>{this.increment}}>Increment</button>
         <p>Count: {this.state.count}</p>
       </div>
     )
