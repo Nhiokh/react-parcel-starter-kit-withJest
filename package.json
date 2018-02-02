@@ -8,7 +8,10 @@
   "license": "MIT",
   "dependencies": {
     "babel-jest": "^22.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.1.4",
+    "jest-enzyme": "^4.1.1",
     "node-sass": "^4.7.2",
     "parcel-bundler": "^1.5.1",
     "react": "^16.2.0",
