@@ -114,7 +114,7 @@ class App extends React.Component {
                     </div>
                   )
                 } else {
-                  console.log('plop')
+                  null
                 }
               })
             }
