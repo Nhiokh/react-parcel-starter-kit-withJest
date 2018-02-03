@@ -48,4 +48,33 @@ describe('Testing News Feed part of App component', ()=> {
     expect(app.find('#app-news-feed h1').text()).toBe('Hello Flora')
   })
 
+  test('Should return the correct number of posts', ()=> {
+    const app = shallow(<App/>)
+    app.setState({
+      userLoggedIn:true,
+      userRealName:'Flora',
+      newsFeedBody: [
+        {
+          publication: {
+            poster: {
+              displayName:"Test1"
+            }
+          },
+          date:'1987'
+        },
+        {
+          publication: {
+            poster: {
+              displayName:"Test2"
+            }
+          },
+          date:'1987'
+        },
+        {
+          date: '2012'
+        }]
+    })
+    expect(app.find('.app-news-feed-list').children()).toHaveLength(2)
+  })
+
 })
