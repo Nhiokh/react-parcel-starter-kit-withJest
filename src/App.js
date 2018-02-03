@@ -3,22 +3,31 @@ import request from 'request';
 
 import './app.scss'
 
+
+const NewsCard = (item,key) => (
+  <p>{key}</p>
+)
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       userLoggedIn: false,
-      userName: '',
-      userPassword: ''
+      userLoggingName: '',
+      userLoggingPassword: '',
+      userToken: '',
+      userRealName: '',
+      newsFeedBody: [],
     }
   }
 
   //LOGGER LOGIC
-  handleNameChange(e){this.setState({userName:e.target.value})}
-  handlePasswordChange(e){this.setState({userPassword:e.target.value})}
+  handleNameChange(e){this.setState({userLoggingName:e.target.value})}
+  handlePasswordChange(e){this.setState({userLoggingPassword:e.target.value})}
 
   handleSubmit(){
-    console.log('click')
+
     request({
       url: "https://api.wizbii.com/v1/account/validate",
       method: "POST",
@@ -34,11 +43,41 @@ class App extends React.Component {
         console.log(response.statusCode);
       }
       else if (!error && response.statusCode === 200) {
-        console.log(body)
-        localStorage.userToken = body["access-token"]
+        this.setState({
+          userToken: body['access-token'],
+          userRealName: body.profile.name,
+        }, ()=>{
+
+              request({
+                url: "https://api.wizbii.com/v2/dashboard/?direction=newest",
+                method: "POST",
+                headers: {
+                  "Authorization": `Bearer ${this.state.userToken}`
+                },
+                json: true,
+                body: {}
+              },
+              (error, response, body) => {
+                console.log(response.statusCode);
+                if (error) {
+                  console.log(error);
+                  console.log(response.statusCode);
+                }
+                else if (!error && response.statusCode === 200 && body!==null) {
+                  this.setState({newsFeedBody: body.feed_items.feed_items}, ()=>{
+                    console.log(this.state.newsFeedBody)
+                    setTimeout(()=>{this.setState({userLoggedIn: true})},500)
+                  })
+                }
+              }
+            )
+          })
+
       }
     })
   }
+
+  componentWillUpdate(nextState){}
 
   render(){
     return (
@@ -62,6 +101,24 @@ class App extends React.Component {
         </div>
       ) : (
         <div id='app-news-feed'>
+          <h1>Hello {this.state.userRealName}</h1>
+          <section className="app-news-feed-list">
+            {
+              this.state.newsFeedBody.map((item,key)=>{
+                if (item.publication !== undefined){
+                  return (
+                    <div key={key} className="news-feed-card">
+                      <h2 className="news-feed-card-user_name">{item.publication.poster.displayName}</h2>
+                      <p className="news-feed-card-post_date">{item.date}</p>
+                      <p className="news-feed-card-content">{item.publication.content}</p>
+                    </div>
+                  )
+                } else {
+                  console.log('plop')
+                }
+              })
+            }
+          </section>
         </div>
       )
     )

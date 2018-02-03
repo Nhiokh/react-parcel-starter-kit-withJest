@@ -1,6 +1,7 @@
 html, body {
   width: 100%;
-  margin: 0; }
+  margin: 0;
+  font-family: sans-serif; }
 
 #app-logger {
   height: 100vh;
@@ -23,3 +24,18 @@ html, body {
     outline: none;
     border-radius: 16px;
     color: white; }
+
+#app-news-feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #eee; }
+  #app-news-feed .app-news-feed-list {
+    width: 90vw;
+    max-width: 600px;
+    overflow: hidden; }
+    #app-news-feed .app-news-feed-list .news-feed-card {
+      background: white;
+      padding: 16px;
+      margin: 0 0 16px;
+      border-radius: 8px; }
