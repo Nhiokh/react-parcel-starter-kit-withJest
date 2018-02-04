@@ -1,15 +1,29 @@
+/* @flow */
+
 import React from 'react';
 import request from 'request';
 
 import './app.scss'
 
+type Props = {
+  userLoggedIn: boolean,
+  userLoggingName: string,
+  userLoggingPassword: string,
+  userToken: string,
+  userRealName: string,
+  newsFeedBody: Array<mixed>,
+}
 
-const NewsCard = (item,key) => (
-  <p>{key}</p>
-)
+type State = {
+  userLoggedIn: boolean,
+  userLoggingName: string,
+  userLoggingPassword: string,
+  userToken: string,
+  userRealName: string,
+  newsFeedBody: Array<mixed>,
+}
 
-
-class App extends React.Component {
+class App extends React.Component<State, Props> {
   constructor(props) {
     super(props);
     this.state = {
