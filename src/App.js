@@ -77,8 +77,6 @@ class App extends React.Component {
     })
   }
 
-  componentWillUpdate(nextState){}
-
   render(){
     return (
       !this.state.userLoggedIn ? (
