@@ -1,5 +1,5 @@
 # React starter kit using Parcel as bundler
-This starter kit is kind of a copy of create-react-app, but without the webpack composant. It aims to emulate what create-react-app does right out of the box, but permits you to use your own Service Workers.
+This starter kit is kind of a copy of create-react-app, but without the webpack composant. It aims to emulate what create-react-app does right out of the box, but permits you to use your own Service Workers without ejecting the project.
 
 ## How to use
 First, clone this repo
