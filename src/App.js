@@ -11,7 +11,7 @@ type Props = {
   userLoggingPassword: string,
   userToken: string,
   userRealName: string,
-  newsFeedBody: Array<mixed>,
+  newsFeedBody: Array<any>,
 }
 
 type State = {
@@ -20,12 +20,12 @@ type State = {
   userLoggingPassword: string,
   userToken: string,
   userRealName: string,
-  newsFeedBody: Array<mixed>,
+  newsFeedBody: Array<any>,
 }
 
 class App extends React.Component<State, Props> {
-  constructor(props) {
-    super(props);
+  constructor(Props:any) {
+    super(Props);
     this.state = {
       userLoggedIn: false,
       userLoggingName: '',
@@ -37,8 +37,8 @@ class App extends React.Component<State, Props> {
   }
 
   //LOGGER LOGIC
-  handleNameChange(e){this.setState({userLoggingName:e.target.value})}
-  handlePasswordChange(e){this.setState({userLoggingPassword:e.target.value})}
+  handleNameChange(e:SyntheticEvent<HTMLInputElement>){this.setState({userLoggingName:e.currentTarget.value})}
+  handlePasswordChange(e:SyntheticEvent<HTMLInputElement>){this.setState({userLoggingPassword:e.currentTarget.value})}
 
   handleSubmit(){
 
