@@ -7,74 +7,9 @@ Enzyme.configure({ adapter: new Adapter() })
 import App from '../src/App'
 
 
-describe('Testing Logger part of App component', ()=>{
-
-  test('Should return logger if user not logged in', ()=> {
-    const app = shallow(<App/>)
-    app.setState({userLoggedIn:false})
-    expect(app.find('#app-logger')).toHaveLength(1)
+describe('This is my first test', ()=>{
+  test('Display Hello World', ()=> {
+    const Wrapper = shallow(<App/>)
+    expect(Wrapper.find('h1').text()).toBe('Hello World!')
   })
-
-  test('Changing username input in logger should change userName state', ()=> {
-    const app = mount(<App/>)
-    app.setState({userLoggedIn:false})
-    app.find('#app-logger-name').simulate('change', {target : {value : "Flora"}})
-    expect(app.state('userLoggingName')).toEqual("Flora")
-  })
-
-  test('Changing password input in logger should change userPassword state', ()=> {
-    const app = mount(<App/>)
-    app.setState({userLoggedIn:false})
-    app.find('#app-logger-password').simulate('change', {target : {value : "Banana"}})
-    expect(app.state('userLoggingPassword')).toEqual("Banana")
-  })
-
-})
-
-describe('Testing News Feed part of App component', ()=> {
-
-  test('Should return news feed if user is logged in', ()=> {
-    const app = shallow(<App/>)
-    app.setState({userLoggedIn:true})
-    expect(app.find('#app-news-feed')).toHaveLength(1)
-  })
-
-  test('Should return user\'s name when logged in', ()=> {
-    const app = shallow(<App/>)
-    app.setState({
-      userLoggedIn:true,
-      userRealName:'Flora'
-    })
-    expect(app.find('#app-news-feed h1').text()).toBe('Hello Flora')
-  })
-
-  test('Should return the correct number of posts', ()=> {
-    const app = shallow(<App/>)
-    app.setState({
-      userLoggedIn:true,
-      userRealName:'Flora',
-      newsFeedBody: [
-        {
-          publication: {
-            poster: {
-              displayName:"Test1"
-            }
-          },
-          date:'1987'
-        },
-        {
-          publication: {
-            poster: {
-              displayName:"Test2"
-            }
-          },
-          date:'1987'
-        },
-        {
-          date: '2012'
-        }]
-    })
-    expect(app.find('.app-news-feed-list').children()).toHaveLength(2)
-  })
-
 })
